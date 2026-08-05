@@ -1,0 +1,79 @@
+---
+import Header from "../components/Header.astro";
+import BlueprintBackground from "../components/BlueprintBackground.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: "home" | "blog" | "now" | "cv";
+}
+
+const {
+  title,
+  description = "Pooya Sharifi — software developer and cybersecurity master's student.",
+  current = "home"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#03101d" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+
+    <title>{title}</title>
+
+    <script is:inline>
+      (() => {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        document.documentElement.dataset.theme = savedTheme || "dark";
+      })();
+    </script>
+  </head>
+
+  <body
+    class:list={{
+      "home-page": current === "home",
+      "now-page": current === "now"
+    }}
+  >
+    <div class="site">
+      <BlueprintBackground />
+      <Header current={current} />
+
+      <slot />
+    </div>
+
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const toggle = document.querySelector("[data-theme-toggle]");
+        const menuButton = document.querySelector("[data-menu-toggle]");
+        const mobileMenu = document.querySelector("[data-mobile-menu]");
+
+        toggle?.addEventListener("click", () => {
+          const next = root.dataset.theme === "light" ? "dark" : "light";
+          root.dataset.theme = next;
+          localStorage.setItem("portfolio-theme", next);
+        });
+
+        menuButton?.addEventListener("click", () => {
+          const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+          mobileMenu?.toggleAttribute("data-open", !isOpen);
+        });
+
+        mobileMenu?.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            menuButton?.setAttribute("aria-expanded", "false");
+            mobileMenu.removeAttribute("data-open");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

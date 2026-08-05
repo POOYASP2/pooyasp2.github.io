@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SocialRail from "../../components/SocialRail.astro";
+
+const page = "Now";
+const current = "now";
+---
+
+<BaseLayout
+  title={`${page} — Pooya Sharifi`}
+  description={`${page} page of Pooya Sharifi's personal website.`}
+  current={current}
+>
+  <main class="now-layout">
+    <SocialRail />
+
+    <section class="now-intro" aria-labelledby="now-title">
+      <p class="eyebrow">/{current}</p>
+      <h1 id="now-title">
+        What I’m working on,<br />
+        right <span>now.</span>
+      </h1>
+      <p>
+        A snapshot of my current focus.<br />
+        Things I’m learning, building and improving.
+      </p>
+      <span class="now-intro-line" aria-hidden="true"></span>
+    </section>
+
+    <section class="now-terminal" aria-label="Current focus and activity">
+      <header class="terminal-bar">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+      </header>
+
+      <div class="now-terminal-body">
+        <section class="now-command-group">
+          <p class="command"><span>$</span> current_focus</p>
+          <p class="now-focus">Learning Virtualization</p>
+        </section>
+
+        <section class="now-command-group">
+          <p class="command"><span>$</span> what_i_am_doing</p>
+          <ul class="now-list">
+            <li>Studying virtualization fundamentals</li>
+            <li>Working with VMware Workstation Pro</li>
+            <li>Practicing Linux on virtual machines</li>
+            <li>Exploring networking in virtual environments</li>
+            <li>Building a homelab for hands-on practice</li>
+          </ul>
+        </section>
+
+        <section class="now-command-group">
+          <p class="command"><span>$</span> tools</p>
+          <ul class="now-tools" aria-label="Current tools">
+            <li>VMware Workstation</li>
+            <li>Linux (Ubuntu)</li>
+            <li>VirtualBox</li>
+            <li>Bash</li>
+          </ul>
+        </section>
+
+        <section class="now-command-group">
+          <p class="command"><span>$</span> current_status</p>
+          <p class="now-status">
+            <span aria-hidden="true"></span>
+            Learning. Experimenting. Building.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

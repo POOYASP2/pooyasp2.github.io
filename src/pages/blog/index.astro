@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/blog.css";
+---
+
+<BaseLayout
+  title="Blog — Pooya Sharifi"
+  description="Thoughts, tutorials, and updates about software development, cybersecurity, and technology."
+  current="blog"
+>
+  <main class="blog-page">
+    <header class="blog-heading">
+      <p>/BLOG</p>
+      <h1>Blog</h1>
+      <p>
+        Thoughts, tutorials and updates about software development,<br />
+        cybersecurity and technology.
+      </p>
+    </header>
+
+    <div class="blog-divider" aria-hidden="true"></div>
+
+    <!--
+      Post list intentionally hidden until articles are ready.
+
+      <section class="blog-posts" aria-label="Blog posts">
+        Future posts will be rendered here without placeholder images.
+      </section>
+    -->
+  </main>
+</BaseLayout>

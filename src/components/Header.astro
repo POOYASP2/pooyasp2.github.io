@@ -1,0 +1,85 @@
+---
+interface Props {
+  current: "home" | "blog" | "now" | "cv";
+}
+
+const { current } = Astro.props;
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const href = (path = "") => `${base}${path}`;
+
+const links = [
+  { id: "home", label: "Home", path: "" },
+  { id: "blog", label: "Blog", path: "blog/" },
+  { id: "now", label: "Now", path: "now/" },
+  { id: "cv", label: "CV", path: "cv/" }
+] as const;
+---
+
+<header class="header">
+  <a class="brand" href={href()} aria-label="Pooya Sharifi — home">
+    <span aria-hidden="true">/</span>PS
+  </a>
+
+  <nav class="nav nav--desktop" aria-label="Primary navigation">
+    {
+      links.map((link) => (
+        <a
+          href={href(link.path)}
+          class:list={{ "is-active": current === link.id }}
+          aria-current={current === link.id ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="header-actions">
+    <button
+      class="theme-toggle"
+      type="button"
+      data-theme-toggle
+      aria-label="Switch color theme"
+      title="Switch color theme"
+    >
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+      </svg>
+
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"></path>
+      </svg>
+    </button>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      data-menu-toggle
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="nav nav--mobile" data-mobile-menu aria-label="Mobile navigation">
+    {
+      links.map((link) => (
+        <a
+          href={href(link.path)}
+          class:list={{ "is-active": current === link.id }}
+          aria-current={current === link.id ? "page" : undefined}
+        >
+          <small>0{links.indexOf(link) + 1}</small>
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
