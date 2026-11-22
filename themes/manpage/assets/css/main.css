@@ -57,7 +57,15 @@ a { color: var(--link); text-underline-offset: 3px; }
 .site-header nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
 .site-header nav a { color: var(--dim); text-decoration: none; padding: 8px 0; }
 .site-header nav a:hover { color: var(--ink); }
-.theme-toggle { font: inherit; background: none; border: 0; padding: 8px 0; color: var(--dim); cursor: pointer; }
+.theme-toggle { font: inherit; background: none; border: 0; padding: 8px 4px; margin: -8px 0; color: var(--dim); cursor: pointer; display: inline-flex; align-items: center; align-self: center; }
+.theme-toggle svg { display: block; }
+.theme-toggle .i-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .i-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .i-moon { display: none; }
+}
 .theme-toggle:hover { color: var(--ink); }
 .site-header nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; }
 
