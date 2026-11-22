@@ -1,0 +1,5 @@
+{{/* Email link assembled by JS; readable fallback without JS. Pass a dict with "text" to set link text. */}}
+{{ $u := site.Params.emailUser }}{{ $d := site.Params.emailDomain }}
+{{ with $u }}
+<a class="em" data-u="{{ $u }}" data-d="{{ $d }}" href="#contact">{{ $u }} [at] {{ $d }}</a>
+{{ end }}

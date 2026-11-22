@@ -1,0 +1,9 @@
+{{/* The man page header line, e.g. ABOUT(1) ... ABOUT(1) */}}
+{{ $label := "about" }}
+{{ if eq .Kind "404" }}{{ $label = "error" }}
+{{ else if in (slice "taxonomy" "term") .Kind }}{{ $label = "tags" }}
+{{ else if .Section }}{{ $label = .Section }}
+{{ else if not .IsHome }}{{ with .File }}{{ $label = .ContentBaseName }}{{ else }}{{ $label = .Title }}{{ end }}
+{{ end }}
+{{ $label = printf "%s(1)" (upper $label) }}
+<div class="mh"><span>{{ $label }}</span><span>{{ $label }}</span></div>

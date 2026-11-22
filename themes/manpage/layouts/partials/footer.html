@@ -1,0 +1,6 @@
+<footer class="site-footer">
+  {{ partial "email.html" . }}
+  {{ with site.Params.github }}<a href="{{ . }}">github</a>{{ end }}
+  {{ with site.Params.linkedin }}<a href="{{ . }}">linkedin</a>{{ end }}
+  <a href="{{ "index.xml" | relURL }}">rss</a>
+</footer>

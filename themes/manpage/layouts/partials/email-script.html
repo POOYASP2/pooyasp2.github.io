@@ -1,0 +1,7 @@
+<script>
+  document.querySelectorAll("a.em").forEach(function (a) {
+    var addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    if (!a.dataset.keep) a.textContent = addr;
+  });
+</script>

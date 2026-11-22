@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="man">
+  {{ with .Content }}<h2>DESCRIPTION</h2>{{ . }}{{ end }}
+  <h2>POSTS</h2>
+  {{ with .Pages }}
+  <ul class="list">
+    {{ range . }}
+    <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="dim">Nothing here yet.</p>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ with .Params.banner }}
+<figure class="banner">
+  <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="1400" height="700">
+  {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
+{{ end }}
+<div class="man">{{ .Content }}</div>
+{{ end }}

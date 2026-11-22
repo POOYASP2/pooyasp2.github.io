@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="man">
+  <h1>{{ .Title }}</h1>
+  <p class="meta">
+    {{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min
+    {{ with .Params.tags }}·{{ range . }} <a href="{{ (printf "/tags/%s/" (. | urlize)) | relURL }}">#{{ . }}</a>{{ end }}{{ end }}
+  </p>
+  {{ .Content }}
+</article>
+<nav class="post-nav">
+  {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+  {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+</nav>
+{{ end }}

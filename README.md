@@ -1,115 +1,42 @@
-# Pooya Sharifi — Astro Portfolio
+# pooyasp2.github.io
 
-A static personal website built with Astro, TypeScript-ready `.astro` components,
-and plain CSS. It is configured for GitHub Pages.
+Personal site of Pooya Sharifi. Built with [Hugo](https://gohugo.io) and a custom theme, `manpage`, where every page reads like a Unix manual entry. Deployed to GitHub Pages by GitHub Actions on every push to `main`.
 
-## Current routes
-
-- `/` — landing page
-- `/blog/` — placeholder for the blog
-- `/now/` — placeholder for the Now page
-- `/cv/` — placeholder for the CV
-
-## Requirements
-
-Use Node.js 24 or another version supported by your installed Astro release.
-
-## Run locally
+## Run it locally
 
 ```bash
-npm install
-npm run dev
+brew install hugo            # once
+hugo server -D               # http://localhost:1313, -D also shows drafts
 ```
 
-Astro will print the local address, normally:
-
-```text
-http://localhost:4321
-```
-
-## Build locally
+## Write a post
 
 ```bash
-npm run build
-npm run preview
+hugo new blog/my-post.md       # technical post
+hugo new journal/my-entry.md   # personal post
 ```
 
-The production files are generated in `dist/`.
+Posts start as drafts. Set `draft: false` when ready, then commit and push.
 
-## Customize before publishing
+Write section headings as `## CAPS` (SUMMARY, DETAILS, EXAMPLE, ...). The theme indents everything under them like a man page.
 
-Edit these files:
+## Edit pages
 
-### Personal text
+| Page    | File                  |
+|---------|-----------------------|
+| About   | `content/_index.md`   |
+| CV      | `content/cv.md`       |
+| Now     | `content/now.md`      |
+| Photo   | `static/images/verona.jpg` |
+| Links, email | `hugo.toml` (`[params]`) |
 
-```text
-src/pages/index.astro
-src/components/TerminalPanel.astro
-```
+Put your email in the page with `{{< email >}}`. It is assembled in the browser so simple scrapers don't collect it.
 
-### Social links
+## Deploy (first time)
 
-```text
-src/components/SocialRail.astro
-```
+1. Create a public repo named `POOYASP2.github.io` on GitHub.
+2. Push this folder to its `main` branch.
+3. In the repo: **Settings → Pages → Source: GitHub Actions**.
+4. The site goes live at https://pooyasp2.github.io after the workflow finishes.
 
-Replace:
-
-- `https://github.com/your-github`
-- `hello@example.com`
-
-The LinkedIn URL is already set to:
-
-```text
-https://www.linkedin.com/in/pooya-sharifi/
-```
-
-### Colors and layout
-
-```text
-src/styles/global.css
-```
-
-The main color variables are at the top of the stylesheet.
-
-### Blueprint background
-
-```text
-src/components/BlueprintBackground.astro
-```
-
-The background is an inline SVG, so it remains sharp on all screen sizes and does
-not depend on an external image.
-
-## Deploy to GitHub Pages
-
-1. Create a GitHub repository.
-2. Copy this project into it.
-3. Run `npm install` locally.
-4. Commit the generated `package-lock.json`.
-5. Push to the `main` branch.
-6. Open the repository on GitHub.
-7. Go to **Settings → Pages**.
-8. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-
-The included workflow deploys the site after every push to `main`.
-
-### Supported GitHub Pages URL types
-
-The Astro configuration detects these automatically inside GitHub Actions:
-
-```text
-https://username.github.io/
-https://username.github.io/repository-name/
-```
-
-For the cleanest portfolio URL, name the repository:
-
-```text
-YOUR_GITHUB_USERNAME.github.io
-```
-
-## Next step
-
-The Blog page can use Astro content collections so each post is a Markdown file
-with typed frontmatter such as title, description, date, tags, and draft status.
+Using a custom domain later: add it in Settings → Pages and update `baseURL` in `hugo.toml`.

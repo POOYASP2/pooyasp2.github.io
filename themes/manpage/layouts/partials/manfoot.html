@@ -1,0 +1,7 @@
+<div class="mf">
+  <span>{{ lower site.Title }}</span>
+  <span>
+    {{ if .IsPage }}{{ with .Params.updated }}Updated {{ . | time.Format "2 January 2006" }}{{ else }}{{ .Date.Format "2 January 2006" }}{{ end }}
+    {{ else }}{{ now.Format "January 2006" }}{{ end }}
+  </span>
+</div>
