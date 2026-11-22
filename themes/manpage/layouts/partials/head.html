@@ -6,6 +6,9 @@
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ site.Params.author }}">
 <meta name="color-scheme" content="light dark">
+<script>
+  try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ $desc }}">

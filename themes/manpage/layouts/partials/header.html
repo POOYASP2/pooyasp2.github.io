@@ -8,5 +8,23 @@
       {{ $active := cond (eq $url "/") $isHome (hasPrefix $here $url) }}
       <a href="{{ $url }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
     {{ end }}
+    <button class="theme-toggle" type="button" aria-label="Switch light or dark theme">theme</button>
   </nav>
+  <script>
+    (function () {
+      var root = document.documentElement, btn = document.currentScript.parentNode.querySelector(".theme-toggle");
+      var isDark = function () {
+        var t = root.getAttribute("data-theme");
+        return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      };
+      var label = function () { btn.textContent = isDark() ? "light" : "dark"; };
+      btn.addEventListener("click", function () {
+        var next = isDark() ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        label();
+      });
+      label();
+    })();
+  </script>
 </header>
