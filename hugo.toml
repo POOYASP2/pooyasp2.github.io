@@ -5,7 +5,7 @@ theme = "manpage"
 enableRobotsTXT = true
 
 [params]
-  description = "Pooya Sharifi: cybersecurity M.Sc. student in Turin, interested in machine learning for security and blue-team work; ex-frontend developer, learning DevOps."
+  description = "Pooya Sharifi: cybersecurity M.Sc. student in Turin, ex-frontend developer, learning DevOps and platform engineering."
   author = "Pooya Sharifi"
   # The email is assembled in the browser so simple scrapers don't pick it up.
   emailUser = "pooyasharifi.sp2"

@@ -16,9 +16,7 @@ Hi, I'm Pooya. I like taking an idea all the way to production: building it, aut
 
 I spent about four years as a frontend developer, building web apps in React, Vue and Next.js. Along the way I got hands-on with the other half of shipping software: GitLab CI/CD pipelines, automated tests and deployments, and error monitoring.
 
-Now I'm doing a master's in cybersecurity at Politecnico di Torino. The part I enjoy most is where security meets machine learning: using data to spot attacks. In my [DDoS detection project](https://github.com/POOYASP2/DDoS-attacks-detection), our model told benign traffic apart from 11 types of DDoS attack with 90% accuracy, and explaining *why* it worked taught me more than the score did. I also like the attacker's side, because it shows what defenders should look for: I did a hands-on OWASP web security workshop, and I take part in PoliTo CTFs (our team placed 15th of 279 at mOleCon 2026).
-
-On the engineering side, I'm learning DevOps and platform engineering so I can build delivery pipelines and infrastructure with security in mind from the start.
+Now I'm doing a master's in cybersecurity at Politecnico di Torino, and I'm learning DevOps and platform engineering so I can build delivery pipelines and infrastructure with security in mind from the start.
 
 The [blog](/blog/) is where I write down what I learn. The [journal](/journal/) is for everything else: books, films, music, and whatever I'm thinking about.
 
@@ -26,7 +24,7 @@ The [blog](/blog/) is where I write down what I learn. The [journal](/journal/) 
 
 {{< email >}} · [github](https://github.com/POOYASP2) · [linkedin](https://www.linkedin.com/in/pooya-sharifi/)
 
-Open to internships, part-time roles and company thesis projects in security (SOC, blue team), DevOps and software. Happy to chat about tech, a good book, or a film, so say hi.
+Open to internships, thesis projects and junior roles in software, DevOps and platform engineering. Happy to chat about tech, a good book, or a film, so say hi.
 
 ## SEE ALSO
 
